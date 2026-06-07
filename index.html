@@ -4,130 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khushi Gupta</title>
-
-    <!-- Google Fonts: a clean, readable pairing -->
-    <!--link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"-->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+PhagsPa&display=swap" rel="stylesheet">
-
-    <style>
-        /* ── CSS Variables: change these to retheme the whole page ── */
-        :root {
-            --bg:       #f9f7f4;
-            --text:     #1a1a1a;
-            --muted:    #888;
-            --accent:   #2a6ef5;
-            --border:   #e4e0d8;
-            --max-w:    640px;
-        }
-
-        /* ── Reset & base ── */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Noto Sans PhagsPa', sans-serif;
-            font-size: 16px;
-            line-height: 1.7;
-            padding: 60px 24px;
-        }
-
-        /* ── Layout: everything lives in one centered column ── */
-        .container {
-            max-width: var(--max-w);
-            margin: 0 auto;
-        }
-
-        /* ── Header ── */
-        header {
-            margin-bottom: 48px;
-        }
-
-        header h1 {
-            font-family: 'Noto Sans PhagsPa', sans-serif;
-            font-size: 2.4rem;
-            font-weight: 400;
-            letter-spacing: -0.5px;
-            margin-bottom: 8px;
-        }
-
-        header p {
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        /* ── Section ── */
-        section {
-            margin-bottom: 40px;
-        }
-
-        section h2 {
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin-bottom: 16px;
-        }
-
-        /* ── Links list ── */
-        ul.link-list {
-            list-style: none;
-        }
-
-        ul.link-list li {
-            border-top: 1px solid var(--border);
-            padding: 12px 0;
-        }
-
-        ul.link-list li:last-child {
-            border-bottom: 1px solid var(--border);
-        }
-
-        ul.link-list a {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
-
-        ul.link-list a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="container">
 
-        <!-- HEADER -->
-        <header>
-            <h1>Khushi Gupta</h1>
-            <p>Developer &amp; lifelong learner.</p>
-        </header>
+    <header class="banner" aria-label="Profile header"></header>
 
-        <!-- ABOUT -->
-        <section>
-            <h2>About</h2>
-            <p>Hi! I'm Khushi — write a sentence or two about yourself here.
-               What are you learning? What are you building toward?</p>
-        </section>
+    <main class="content">
+        <h1>Khushi Gupta</h1>
+        <p> CS Student @ Purdue University <br>
+            Class of 2028
+        </p>
 
-        <!-- LINKS -->
-        <section>
-            <h2>Links</h2>
-            <ul class="link-list">
-                <li><a href="https://github.com/your-username">GitHub →</a></li>
-                <li><a href="#">Another link →</a></li>
-            </ul>
-        </section>
+        <h2>About</h2>
+        <p>Hi! I'm Khushi — Working on AI, Robotics, and Software Engineering  </p>
 
-    </div>
+        <h2>Work</h2>
+        <p class="work-categories" id="work-categories"></p>
+
+        <h3>Featured projects</h3>
+        <ul class="project-list" id="featured-projects"></ul>
+
+        <a class="see-all" id="see-all-work" href="work.html">
+            See all work [<span id="project-count"></span>]
+        </a>
+
+        <h2>Links</h2>
+        <ul>
+            <li><a href="https://github.com/kgupt07">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/khushigpta/">LinkedIn</a></li>
+        </ul>
+    </main>
+
+    <script src="projects.js"></script>
+    <script>
+        renderCategories("work-categories");
+        renderProjectList("featured-projects", { category: "AI", featuredOnly: true });
+        renderSeeAllLink("see-all-work", "project-count");
+    </script>
+
 </body>
 </html>

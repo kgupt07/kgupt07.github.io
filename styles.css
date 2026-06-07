@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+}
+
+.banner {
+    height: 13rem;
+    background-image: url("20251101_005736.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.content {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 2rem 6rem;
+}
+
+/* Work section — edit layout here only */
+.work-categories {
+    margin-bottom: 1rem;
+}
+
+.project-list {
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid #ccc;
+}
+
+.project-list li {
+    border-bottom: 1px solid #ccc;
+    padding: 0.75rem 0;
+}
+
+.project-list a {
+    font-weight: bold;
+}
+
+.see-all {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 0;
+}

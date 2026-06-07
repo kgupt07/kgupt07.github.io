@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML &amp; CSS Starter Guide</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.75in;
+            @bottom-center {
+                content: "HTML & CSS Starter Guide — Page " counter(page);
+                font-size: 9pt;
+                color: #666;
+            }
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 11pt;
+            line-height: 1.55;
+            color: #1a1a1a;
+            max-width: 100%;
+        }
+
+        h1 {
+            font-size: 26pt;
+            font-weight: normal;
+            border-bottom: 2px solid #2a6ef5;
+            padding-bottom: 0.3em;
+            margin-top: 0;
+            page-break-after: avoid;
+        }
+
+        h2 {
+            font-size: 16pt;
+            color: #2a6ef5;
+            margin-top: 1.6em;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: 12pt;
+            margin-top: 1.2em;
+            page-break-after: avoid;
+        }
+
+        p { margin: 0.6em 0; }
+
+        ul, ol { margin: 0.5em 0; padding-left: 1.4em; }
+        li { margin: 0.25em 0; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+            font-size: 10pt;
+            page-break-inside: avoid;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 0.45em 0.6em;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th { background: #f0f4ff; }
+
+        code, pre {
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 9.5pt;
+        }
+
+        pre {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-left: 3px solid #2a6ef5;
+            padding: 0.8em 1em;
+            overflow-wrap: break-word;
+            white-space: pre-wrap;
+            page-break-inside: avoid;
+        }
+
+        .cover {
+            text-align: center;
+            padding: 2in 0 1in;
+            page-break-after: always;
+        }
+
+        .cover h1 { border: none; font-size: 32pt; }
+        .cover p { font-size: 14pt; color: #555; }
+
+        .tip {
+            background: #f0f8ff;
+            border-left: 4px solid #2a6ef5;
+            padding: 0.7em 1em;
+            margin: 1em 0;
+            page-break-inside: avoid;
+        }
+
+        .exercise {
+            background: #fff8f0;
+            border: 1px solid #e8d4b8;
+            padding: 0.8em 1em;
+            margin: 1em 0;
+            page-break-inside: avoid;
+        }
+
+        .exercise strong { color: #b45309; }
+
+        .diagram {
+            font-family: Consolas, monospace;
+            font-size: 9pt;
+            background: #fafafa;
+            padding: 1em;
+            border: 1px solid #eee;
+            page-break-inside: avoid;
+        }
+
+        .toc { page-break-after: always; }
+        .toc ul { list-style: none; padding-left: 0; }
+        .toc li { margin: 0.4em 0; }
+        .toc a { color: inherit; text-decoration: none; }
+
+        hr { border: none; border-top: 1px solid #ddd; margin: 2em 0; }
+    </style>
+</head>
+<body>
+
+<section class="cover">
+    <h1>HTML &amp; CSS<br>Starter Guide</h1>
+    <p>A hands-on guide for building your first personal website</p>
+    <p style="font-size: 11pt; margin-top: 2em;">Based on a real portfolio project<br>(GitHub Pages + index.html)</p>
+</section>
+
+<section class="toc">
+    <h2>Contents</h2>
+    <ol>
+        <li>The Big Picture: HTML vs CSS</li>
+        <li>How Tags, Elements, and Attributes Work</li>
+        <li>What Is a Class?</li>
+        <li>Every Page Skeleton</li>
+        <li>Essential HTML Tags (with examples)</li>
+        <li>CSS Basics You Will Actually Use</li>
+        <li>Build Your Page Step by Step</li>
+        <li>Real Example: Your Portfolio Structure</li>
+        <li>Common Mistakes &amp; Fixes</li>
+        <li>Quick Reference Cheat Sheet</li>
+        <li>Practice Exercises</li>
+    </ol>
+</section>
+
+<h2>1. The Big Picture: HTML vs CSS</h2>
+
+<p>Every webpage you see is built from two languages working together:</p>
+
+<table>
+    <tr>
+        <th>Language</th>
+        <th>Job</th>
+        <th>Analogy</th>
+    </tr>
+    <tr>
+        <td><strong>HTML</strong></td>
+        <td>Structure and meaning — <em>what</em> is on the page</td>
+        <td>Skeleton / outline of a document</td>
+    </tr>
+    <tr>
+        <td><strong>CSS</strong></td>
+        <td>Appearance — <em>how</em> it looks</td>
+        <td>Paint, spacing, layout, photos as backgrounds</td>
+    </tr>
+</table>
+
+<div class="diagram">
+Browser reads HTML  →  builds the page structure
+        ↓
+Browser reads CSS   →  applies colors, sizes, layout
+        ↓
+You see the finished website
+</div>
+
+<div class="tip">
+    <strong>Remember in one sentence:</strong> HTML says <em>what</em>; CSS says <em>how it looks</em>.
+</div>
+
+<h2>2. How Tags, Elements, and Attributes Work</h2>
+
+<h3>Tag</h3>
+<p>The label in angle brackets: <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;a&gt;</code>.</p>
+
+<h3>Element</h3>
+<p>The whole piece: opening tag + content + closing tag.</p>
+
+<pre>&lt;h1&gt;Khushi Gupta&lt;/h1&gt;
+ ↑ open    ↑ text    ↑ close
+
+This entire thing is one &lt;h1&gt; element.</pre>
+
+<h3>Self-closing tags</h3>
+<p>Some tags have no closing tag and no inner content:</p>
+<pre>&lt;br&gt;
+&lt;img src="photo.jpg" alt="Description"&gt;</pre>
+
+<h3>Attributes</h3>
+<p>Extra information inside the opening tag:</p>
+<pre>&lt;a href="https://github.com/username"&gt;GitHub&lt;/a&gt;
+      ↑ attribute name = "value"</pre>
+
+<table>
+    <tr><th>Attribute</th><th>Used on</th><th>Purpose</th></tr>
+    <tr><td><code>href</code></td><td><code>&lt;a&gt;</code></td><td>Where a link goes</td></tr>
+    <tr><td><code>src</code></td><td><code>&lt;img&gt;</code></td><td>Path to an image file</td></tr>
+    <tr><td><code>alt</code></td><td><code>&lt;img&gt;</code></td><td>Description of the image</td></tr>
+    <tr><td><code>class</code></td><td>Any element</td><td>A custom name for CSS styling</td></tr>
+    <tr><td><code>lang</code></td><td><code>&lt;html&gt;</code></td><td>Page language (e.g. en)</td></tr>
+</table>
+
+<h2>3. What Is a Class?</h2>
+
+<p>A <strong>class</strong> is a nickname you invent. It connects HTML to CSS.</p>
+
+<pre>&lt;!-- HTML: label the element --&gt;
+&lt;header class="banner"&gt;&lt;/header&gt;
+&lt;main class="content"&gt;...&lt;/main&gt;
+
+/* CSS: style by that nickname (note the dot) */
+.banner { height: 13rem; }
+.content { max-width: 40rem; }</pre>
+
+<p><strong>Tag</strong> = built-in type (<code>header</code>, <code>p</code>, <code>a</code>).<br>
+<strong>Class</strong> = your custom label (<code>banner</code>, <code>content</code>, <code>card</code>).</p>
+
+<div class="tip">
+    You can name a class anything: <code>card</code>, <code>profile-box</code>, <code>links-section</code>.
+    The browser does not care about the name — only your CSS does.
+</div>
+
+<h2>4. Every Page Skeleton</h2>
+
+<p>Every HTML file follows this structure:</p>
+
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Your Name&lt;/title&gt;
+    &lt;style&gt;
+        /* CSS rules go here */
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Everything visible goes here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<table>
+    <tr><th>Part</th><th>Visible?</th><th>Purpose</th></tr>
+    <tr><td><code>&lt;!DOCTYPE html&gt;</code></td><td>No</td><td>Tells browser this is modern HTML5</td></tr>
+    <tr><td><code>&lt;head&gt;</code></td><td>No</td><td>Setup: title, charset, CSS</td></tr>
+    <tr><td><code>&lt;title&gt;</code></td><td>Tab only</td><td>Browser tab + search results</td></tr>
+    <tr><td><code>&lt;body&gt;</code></td><td>Yes</td><td>All visible content</td></tr>
+</table>
+
+<h2>5. Essential HTML Tags (with examples)</h2>
+
+<h3>Headings: &lt;h1&gt; through &lt;h6&gt;</h3>
+<p>Largest to smallest. Use one <code>&lt;h1&gt;</code> per page (your name). Sections use <code>&lt;h2&gt;</code>.</p>
+<pre>&lt;h1&gt;Khushi Gupta&lt;/h1&gt;
+&lt;h2&gt;About&lt;/h2&gt;
+&lt;h2&gt;Links&lt;/h2&gt;</pre>
+
+<h3>Paragraph: &lt;p&gt;</h3>
+<pre>&lt;p&gt;Hi! I'm Khushi — Working on AI, Robotics, and Software Engineering.&lt;/p&gt;</pre>
+
+<h3>Line break: &lt;br&gt;</h3>
+<p>Starts a new line <em>inside</em> the same paragraph. No closing tag.</p>
+<pre>&lt;p&gt;CS Student @ Purdue University &lt;br&gt;
+   Class of 2028&lt;/p&gt;</pre>
+
+<h3>Link: &lt;a&gt;</h3>
+<pre>&lt;a href="https://github.com/your-username"&gt;GitHub&lt;/a&gt;</pre>
+
+<table>
+    <tr><th>href value</th><th>Meaning</th></tr>
+    <tr><td><code>https://...</code></td><td>External website</td></tr>
+    <tr><td><code>about.html</code></td><td>Another page in your folder</td></tr>
+    <tr><td><code>mailto:you@email.com</code></td><td>Opens email app</td></tr>
+    <tr><td><code>#</code></td><td>Placeholder (replace later)</td></tr>
+</table>
+
+<h3>Bullet list: &lt;ul&gt; + &lt;li&gt;</h3>
+<pre>&lt;ul&gt;
+    &lt;li&gt;&lt;a href="https://github.com/..."&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;LinkedIn&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+
+<h3>Numbered list: &lt;ol&gt; + &lt;li&gt;</h3>
+<pre>&lt;ol&gt;
+    &lt;li&gt;Learn HTML basics&lt;/li&gt;
+    &lt;li&gt;Build index.html&lt;/li&gt;
+    &lt;li&gt;Push to GitHub Pages&lt;/li&gt;
+&lt;/ol&gt;</pre>
+
+<h3>Image: &lt;img&gt;</h3>
+<pre>&lt;img src="profile.jpg" alt="Khushi Gupta"&gt;</pre>
+<p>Put the image file in the same folder as <code>index.html</code>, or use a path like <code>images/photo.jpg</code>.</p>
+
+<h3>Section tags (grouping content)</h3>
+<table>
+    <tr><th>Tag</th><th>Use for</th></tr>
+    <tr><td><code>&lt;header&gt;</code></td><td>Top of page (banner area)</td></tr>
+    <tr><td><code>&lt;main&gt;</code></td><td>Primary page content (one per page)</td></tr>
+    <tr><td><code>&lt;section&gt;</code></td><td>Themed block (About, Projects, Links)</td></tr>
+    <tr><td><code>&lt;footer&gt;</code></td><td>Bottom of page (copyright, contact)</td></tr>
+    <tr><td><code>&lt;nav&gt;</code></td><td>Navigation menu</td></tr>
+    <tr><td><code>&lt;div&gt;</code></td><td>Generic container when nothing else fits</td></tr>
+</table>
+
+<h3>Nesting rule</h3>
+<p>Tags open and close like nested boxes — last opened, first closed:</p>
+<pre>&lt;main&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="..."&gt;Link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/main&gt;</pre>
+
+<h2>6. CSS Basics You Will Actually Use</h2>
+
+<h3>Where CSS lives</h3>
+<pre>&lt;style&gt;
+    body { margin: 0; }
+&lt;/style&gt;</pre>
+
+<h3>Rule structure</h3>
+<pre>selector {
+    property: value;
+    property: value;
+}</pre>
+
+<h3>Selectors</h3>
+<table>
+    <tr><th>CSS</th><th>Matches</th></tr>
+    <tr><td><code>body</code></td><td>The <code>&lt;body&gt;</code> tag</td></tr>
+    <tr><td><code>.banner</code></td><td>Any element with <code>class="banner"</code></td></tr>
+    <tr><td><code>h1</code></td><td>All <code>&lt;h1&gt;</code> elements</td></tr>
+</table>
+
+<h3>Properties from your real site</h3>
+
+<pre>/* Center content column with side space */
+.content {
+    max-width: 40rem;      /* don't get wider than ~640px */
+    margin: 0 auto;          /* center horizontally */
+    padding: 2rem 6rem;      /* space inside the box */
+}
+
+/* LinkedIn-style banner header */
+.banner {
+    height: 13rem;           /* tall strip, measured top to bottom */
+    background-image: url("photo.jpg");
+    background-size: cover;  /* fill area, crop if needed */
+    background-position: center; /* show middle of photo */
+}</pre>
+
+<h3>Units: rem</h3>
+<p><code>rem</code> = relative to the root font size (usually 16px).</p>
+<ul>
+    <li><code>1rem</code> ≈ 16px</li>
+    <li><code>2rem</code> ≈ 32px</li>
+    <li><code>13rem</code> ≈ 208px banner height</li>
+</ul>
+<p><code>height</code> on <code>.banner</code> is measured from the <strong>top</strong> of the banner to the <strong>bottom</strong> — not from the center of the screen.</p>
+
+<h3>Image in page vs background image</h3>
+<table>
+    <tr><th></th><th><code>&lt;img src="..."&gt;</code></th><th><code>background-image: url(...)</code></th></tr>
+    <tr><td>Best for</td><td>Profile photos, content images</td><td>Banners, decorative headers</td></tr>
+    <tr><td>Path syntax</td><td><code>src="file.jpg"</code></td><td><code>url("file.jpg")</code></td></tr>
+    <tr><td>Size control</td><td><code>width</code>, <code>max-width</code></td><td><code>background-size</code>, box <code>height</code></td></tr>
+</table>
+
+<h2>7. Build Your Page Step by Step</h2>
+
+<ol>
+    <li><strong>Create <code>index.html</code></strong> with the page skeleton (Section 4).</li>
+    <li><strong>Add your name</strong> in <code>&lt;h1&gt;</code> and a short bio in <code>&lt;p&gt;</code>.</li>
+    <li><strong>Add sections</strong> with <code>&lt;h2&gt;</code> for About, Links, Projects.</li>
+    <li><strong>Add links</strong> with <code>&lt;ul&gt;</code> and <code>&lt;a href="..."&gt;</code>.</li>
+    <li><strong>Add CSS</strong> in <code>&lt;style&gt;</code> to center content (<code>max-width</code>, <code>margin: 0 auto</code>).</li>
+    <li><strong>Add a banner</strong>: empty <code>&lt;header class="banner"&gt;</code> + background CSS.</li>
+    <li><strong>Save and preview</strong>: double-click the file or open via a local server.</li>
+    <li><strong>Push to GitHub</strong> for your live site at <code>username.github.io</code>.</li>
+</ol>
+
+<h2>8. Real Example: Your Portfolio Structure</h2>
+
+<pre>&lt;header class="banner" aria-label="Profile header"&gt;&lt;/header&gt;
+
+&lt;main class="content"&gt;
+    &lt;h1&gt;Khushi Gupta&lt;/h1&gt;
+    &lt;p&gt;CS Student @ Purdue University &lt;br&gt;
+       Class of 2028&lt;/p&gt;
+
+    &lt;h2&gt;About&lt;/h2&gt;
+    &lt;p&gt;Hi! I'm Khushi — Working on AI, Robotics, and Software Engineering.&lt;/p&gt;
+
+    &lt;h2&gt;Links&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="https://github.com/your-username"&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Another link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/main&gt;</pre>
+
+<div class="diagram">
+Full-width banner (photo as background)
+┌──────────────────────────────────────┐
+│           .banner (13rem tall)        │
+└──────────────────────────────────────┘
+        Centered text column
+        ┌────────────────────┐
+        │  .content          │
+        │  h1, p, h2, links  │
+        └────────────────────┘
+</div>
+
+<h2>9. Common Mistakes &amp; Fixes</h2>
+
+<table>
+    <tr><th>Problem</th><th>Likely cause</th><th>Fix</th></tr>
+    <tr><td>Broken image icon</td><td>Wrong filename or path</td><td>Match <code>src</code> or <code>url()</code> to exact file name</td></tr>
+    <tr><td>CSS not working</td><td>Typo in class name</td><td><code>class="banner"</code> must match <code>.banner</code></td></tr>
+    <tr><td>Link goes nowhere</td><td><code>href="#"</code> placeholder</td><td>Replace with real URL</td></tr>
+    <tr><td>Wrong part of photo in banner</td><td>Default crop</td><td>Try <code>background-position: center top;</code></td></tr>
+    <tr><td>Page stuck at left edge</td><td>No centering CSS</td><td>Add <code>max-width</code> + <code>margin: 0 auto</code></td></tr>
+    <tr><td>Tags look wrong</td><td>Unclosed tag</td><td>Every <code>&lt;tag&gt;</code> needs <code>&lt;/tag&gt;</code> (except br, img)</td></tr>
+</table>
+
+<h2>10. Quick Reference Cheat Sheet</h2>
+
+<table>
+    <tr><th>I want to…</th><th>HTML</th></tr>
+    <tr><td>Page title in browser tab</td><td><code>&lt;title&gt;Name&lt;/title&gt;</code> in head</td></tr>
+    <tr><td>Main page title</td><td><code>&lt;h1&gt;...&lt;/h1&gt;</code></td></tr>
+    <tr><td>Section title</td><td><code>&lt;h2&gt;...&lt;/h2&gt;</code></td></tr>
+    <tr><td>Paragraph</td><td><code>&lt;p&gt;...&lt;/p&gt;</code></td></tr>
+    <tr><td>Line break</td><td><code>&lt;br&gt;</code></td></tr>
+    <tr><td>Clickable link</td><td><code>&lt;a href="URL"&gt;text&lt;/a&gt;</code></td></tr>
+    <tr><td>Bullet list</td><td><code>&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;</code></td></tr>
+    <tr><td>Photo in page</td><td><code>&lt;img src="..." alt="..."&gt;</code></td></tr>
+    <tr><td>Photo as header background</td><td>CSS <code>background-image: url("...");</code></td></tr>
+    <tr><td>Center narrow column</td><td><code>max-width: 40rem; margin: 0 auto;</code></td></tr>
+</table>
+
+<h2>11. Practice Exercises</h2>
+
+<div class="exercise">
+    <strong>Exercise 1 — Add a Projects section</strong><br>
+    Inside <code>&lt;main&gt;</code>, add an <code>&lt;h2&gt;Projects&lt;/h2&gt;</code>, a <code>&lt;p&gt;</code> description, and a <code>&lt;ul&gt;</code> with one link to a GitHub repo.
+</div>
+
+<div class="exercise">
+    <strong>Exercise 2 — Fix your GitHub link</strong><br>
+    Replace <code>your-username</code> in the GitHub URL with your real GitHub username. Save and click the link to test.
+</div>
+
+<div class="exercise">
+    <strong>Exercise 3 — Adjust the banner</strong><br>
+    Change <code>height: 13rem</code> to <code>18rem</code>. Refresh. Then try <code>background-position: center top;</code> and compare.
+</div>
+
+<div class="exercise">
+    <strong>Exercise 4 — Create a "card" class</strong><br>
+    Wrap your About section in <code>&lt;section class="card"&gt;</code>. In CSS add: <code>.card { padding: 1rem; border: 1px solid #ccc; margin-bottom: 1rem; }</code>
+</div>
+
+<div class="exercise">
+    <strong>Exercise 5 — Add a footer</strong><br>
+    After <code>&lt;/main&gt;</code>, add <code>&lt;footer class="content"&gt;&lt;p&gt;© 2026 Khushi Gupta&lt;/p&gt;&lt;/footer&gt;</code>
+</div>
+
+<hr>
+<p style="text-align: center; color: #666; font-size: 10pt;">
+    Keep this guide next to your <code>index.html</code> while you edit.<br>
+    Save → refresh browser → repeat.
+</p>
+
+</body>
+</html>

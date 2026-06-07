@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work — Khushi Gupta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="banner" aria-label="Profile header"></header>
+
+    <main class="content">
+        <h1>Work</h1>
+        <p><a href="index.html">← Back home</a></p>
+
+        <div id="all-work"></div>
+    </main>
+
+    <script src="projects.js"></script>
+    <script>
+        const container = document.getElementById("all-work");
+
+        container.innerHTML = CATEGORIES.map((category) => {
+            const projects = PROJECTS.filter((p) => p.category === category);
+            const items = projects
+                .map(
+                    (p) => `
+                <li>
+                    <a href="${p.link}">${p.title}</a>
+                    <br>${p.description}
+                </li>`
+                )
+                .join("");
+
+            return `
+            <section>
+                <h2>${category} (${projects.length})</h2>
+                <ul class="project-list">${items}</ul>
+            </section>`;
+        }).join("");
+    </script>
+
+</body>
+</html>
