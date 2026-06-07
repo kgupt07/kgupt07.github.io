@@ -7,16 +7,16 @@ const CATEGORIES = [
 
 const PROJECTS = [
     {
-        title: "Project One",
-        description: "Short description of your first AI project.",
-        link: "#",
+        title: "WriteRight",
+        description: "Educational Number writing application [game format].",
+        link: "https://github.com/kgupt07/handwriting-detection-using-NN",
         category: "AI",
         featured: true,
     },
     {
-        title: "Project Two",
-        description: "Short description of your second AI project.",
-        link: "#",
+        title: "Quadruped Simulation",
+        description: "Controls project to design quadruped gait in simulation..",
+        link: "https://github.com/kgupt07/quadruped_gait",
         category: "AI",
         featured: true,
     },
