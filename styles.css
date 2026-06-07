@@ -15,6 +15,21 @@ body {
     padding: 2rem 6rem;
 }
 
+.top-nav {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 1rem 6rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.top-nav a {
+    margin-right: 1.5rem;
+}
+
+section {
+    margin-top: 2rem;
+}
+
 /* Work section — edit layout here only */
 .work-categories {
     margin-bottom: 1rem;

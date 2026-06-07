@@ -11,15 +11,18 @@
 
     <header class="banner" aria-label="Profile header"></header>
 
-    <main class="content">
-        <h1>Work</h1>
-        <p><a href="index.html">← Back home</a></p>
+    <nav class="top-nav" id="top-nav" aria-label="Main"></nav>
 
+    <main class="content">
+        <h1>All work</h1>
         <div id="all-work"></div>
     </main>
 
+    <script src="nav.js"></script>
     <script src="projects.js"></script>
     <script>
+        renderNav();
+
         const container = document.getElementById("all-work");
 
         container.innerHTML = CATEGORIES.map((category) => {
