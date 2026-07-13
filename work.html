@@ -15,34 +15,14 @@
 
     <main class="content">
         <h1>All work</h1>
-        <div id="all-work"></div>
+        <ul class="project-list" id="all-projects"></ul>
     </main>
 
     <script src="nav.js"></script>
     <script src="projects.js"></script>
     <script>
         renderNav();
-
-        const container = document.getElementById("all-work");
-
-        container.innerHTML = CATEGORIES.map((category) => {
-            const projects = PROJECTS.filter((p) => p.category === category);
-            const items = projects
-                .map(
-                    (p) => `
-                <li>
-                    <a href="${p.link}">${p.title}</a>
-                    <br>${p.description}
-                </li>`
-                )
-                .join("");
-
-            return `
-            <section>
-                <h2>${category} (${projects.length})</h2>
-                <ul class="project-list">${items}</ul>
-            </section>`;
-        }).join("");
+        renderProjectList("all-projects");
     </script>
 
 </body>

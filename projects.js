@@ -1,23 +1,30 @@
 // ── Edit projects here. Everything else updates automatically. ──
 
-const CATEGORIES = [
-    "AI",
-    // add more categories here, e.g. "Robotics",
-];
-
 const PROJECTS = [
     {
         title: "WriteRight",
         description: "Educational Number writing application [game format].",
         link: "https://github.com/kgupt07/handwriting-detection-using-NN",
-        category: "AI",
         featured: true,
     },
     {
         title: "Quadruped Simulation",
         description: "Controls project to design quadruped gait in simulation..",
         link: "https://github.com/kgupt07/quadruped_gait",
-        category: "AI",
+        featured: true,
+    },
+    {
+        title: "Warehouse Robot",
+        description:
+            "Simulation of a warehouse robot that maps its environment, navigates to a target, reports, and returns home.",
+        link: "https://github.com/kgupt07/WarehouseRobot",
+        featured: true,
+    },
+    {
+        title: "Red-Teaming Agentic AI",
+        description:
+            "Purdue Data Mine partnership with Prediction Guard — red-teamed agentic AI against the OWASP Top 10 for Agentic Applications.",
+        link: "https://predictionguard.com/blog/red-teaming-agentic-ai-findings-from-testing-prediction-guard-against-the-owasp-top-10",
         featured: true,
     },
     // add more projects below — set featured: true to show on home page
@@ -25,25 +32,11 @@ const PROJECTS = [
 
 // ── Rendering (you usually don't need to edit below) ──
 
-function countByCategory(category) {
-    return PROJECTS.filter((p) => p.category === category).length;
-}
-
-function renderCategories(containerId) {
-    const el = document.getElementById(containerId);
-    if (!el) return;
-
-    el.innerHTML = CATEGORIES.map(
-        (name) => `<strong>${name}</strong> (${countByCategory(name)})`
-    ).join(" · ");
-}
-
-function renderProjectList(containerId, { category, featuredOnly }) {
+function renderProjectList(containerId, { featuredOnly } = {}) {
     const el = document.getElementById(containerId);
     if (!el) return;
 
     let list = PROJECTS;
-    if (category) list = list.filter((p) => p.category === category);
     if (featuredOnly) list = list.filter((p) => p.featured);
 
     el.innerHTML = list
