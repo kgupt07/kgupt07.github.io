@@ -3,7 +3,6 @@
 const NAV_ITEMS = [
     { id: "about", label: "About", href: "index.html#about" },
     { id: "work", label: "Work", href: "index.html#work" },
-    { id: "links", label: "Links", href: "index.html#links" },
 ];
 
 function renderNav() {

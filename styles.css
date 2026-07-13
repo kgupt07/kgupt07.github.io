@@ -37,20 +37,25 @@ body {
 
 .profile-photo {
     width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    object-position: center top;
+    height: auto;
     display: block;
 }
 
 .profile-links {
     display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    font-size: 1.5rem;
 }
 
 .profile-links a {
-    word-break: break-word;
+    color: black;
+}
+
+.profile-links a:hover {
+    color: gray;
 }
 
 .content {
@@ -98,5 +103,9 @@ section {
     .profile-photo {
         width: 7rem;
         flex-shrink: 0;
+    }
+
+    .profile-links {
+        justify-content: flex-start;
     }
 }
